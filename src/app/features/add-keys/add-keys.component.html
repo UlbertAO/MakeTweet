@@ -1,0 +1,23 @@
+<div
+  class="container-fluid d-flex flex-column justify-items-center align-items-center gap-3"
+>
+  <div class="row g-3 align-items-center w-75">
+    <div class="col-2">
+      <label for="newsapi_key" class="col-form-label">NEWSAPI Key:</label>
+    </div>
+    <div class="col-8">
+      <input
+        type="text"
+        id="newsapi_key"
+        class="form-control"
+        aria-describedby="newsapiKeyHelpInline"
+        [(ngModel)]="newsApiKey"
+      />
+    </div>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-primary" (click)="saveKeys()">
+      Save
+    </button>
+  </div>
+</div>
