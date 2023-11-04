@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/make_tweet",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,7 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/config"
             ],
             "styles": [
               "src/styles.scss"
@@ -63,6 +64,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "make_tweet:build",
+            "port": 9091
+          },
           "configurations": {
             "production": {
               "browserTarget": "make_tweet:build:production"
@@ -97,7 +102,16 @@
             ],
             "scripts": []
           }
-        }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+              "lintFilePatterns": [
+                  "src/**/*.ts",
+                  "src/**/*.html"
+              ]
+          }
+      }
       }
     }
   }
