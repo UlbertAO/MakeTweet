@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Constants } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-add-keys',
@@ -8,9 +9,9 @@ import { Component } from '@angular/core';
 export class AddKeysComponent {
   newsApiKey: string;
   constructor() {
-    this.newsApiKey = localStorage.getItem('newsApiKey') || '';
+    this.newsApiKey = localStorage.getItem(Constants.NEWSAPIKEY) || '';
   }
   saveKeys() {
-    localStorage.setItem('newsApiKey', this.newsApiKey);
+    localStorage.setItem(Constants.NEWSAPIKEY, this.newsApiKey);
   }
 }

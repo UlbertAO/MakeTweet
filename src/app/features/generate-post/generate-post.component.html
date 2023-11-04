@@ -1,1 +1,56 @@
-<p>generate-post works!</p>
+<div class="container-fluid">
+  <div *ngIf="!allKeysAdded; else generatePost" class="row text-center">
+    <h3>Add keys to use the application</h3>
+  </div>
+  <ng-template #generatePost>
+    <div
+      *ngIf="(sourceIds | keyvalue).length > 0"
+      class="row justify-content-center m-3"
+    >
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="loadPost()"
+        >
+          Generate Posts <i class="bi bi-arrow-right-circle"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row m-3">
+      <div class="col-auto">
+        <fieldset
+          *ngIf="(sourceIds | keyvalue).length > 0"
+          class="d-flex flex-column"
+        >
+          <legend>Select Sources:</legend>
+          <div
+            class="d-flex flex-wrap gap-3 align-content-center justify-content-center"
+          >
+            <span *ngFor="let src of sourceIds | keyvalue">
+              <input
+                type="checkbox"
+                [id]="src.key"
+                [name]="src.key"
+                [checked]="src.value"
+                (click)="updateValue(src.key, src.value)"
+              />
+              <label [for]="src.key">{{ src.key }}</label>
+            </span>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row justify-content-center m-3">
+      <div class="col-auto">
+        <button
+          type="button"
+          class="btn btn-outline-primary"
+          (click)="getSources()"
+        >
+          Get Sources <i class="bi bi-arrow-right-circle"></i>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

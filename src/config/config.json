@@ -1,4 +1,5 @@
 {
-  "key1": "value1",
-  "key2": "value2"
+  "baseurl": {
+    "newsapi": "https://newsapi.org/v2"
+  }
 }
