@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NewsApiEverythingModel } from 'src/app/models/newsapiEverythingModel';
 import { NewsApiSourcesModel } from 'src/app/models/newsapiSourcesModel';
 import { AppSettingService } from 'src/app/shared/app-setting.service';
 import { Constants } from 'src/app/shared/constants';
@@ -29,6 +30,11 @@ export class AppService {
     // });
     return this.http.get<NewsApiSourcesModel>(
       '../../../assets/response/newsapiSources.json'
+    );
+  }
+  getNewsApiEverything(): Observable<NewsApiEverythingModel> {
+    return this.http.get<NewsApiEverythingModel>(
+      '../../../assets/response/newsapiEverything.json'
     );
   }
 }

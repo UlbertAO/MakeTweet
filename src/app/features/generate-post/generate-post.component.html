@@ -17,12 +17,9 @@
         </button>
       </div>
     </div>
-    <div class="row m-3">
+    <div class="row m-3" *ngIf="(sourceIds | keyvalue).length > 0">
       <div class="col-auto">
-        <fieldset
-          *ngIf="(sourceIds | keyvalue).length > 0"
-          class="d-flex flex-column"
-        >
+        <fieldset class="d-flex flex-column">
           <legend>Select Sources:</legend>
           <div
             class="d-flex flex-wrap gap-3 align-content-center justify-content-center"

@@ -1,0 +1,71 @@
+{
+  "status": "ok",
+  "totalResults": 5,
+  "articles": [
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Elizabeth Rayne",
+      "title": "Most monstrous marsquake ever reveals where it came from",
+      "description": "A seismic event that looked like an impact, but no craters to be seen.",
+      "url": "https://arstechnica.com/science/2023/11/most-monstrous-marsquake-ever-reveals-where-it-came-from/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/image-760x380.jpeg",
+      "publishedAt": "2023-11-05T12:03:50Z",
+      "content": "Enlarge/ InSight captured seismic waves released when an impact formed this crater in 2021. But a similar event can't be tied to any craters.\r\n4 with \r\nEarth has earthquakes. Mars has marsquakes. The… [+4826 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Dan Goodin",
+      "title": "No, Okta, senior management, not an errant employee, caused you to get hacked",
+      "description": "If a transgression by a single employee breaches your network, you're doing it wrong.",
+      "url": "https://arstechnica.com/information-technology/2023/11/no-okta-senior-management-not-an-errant-employee-caused-you-to-get-hacked/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/okta-760x380.jpg",
+      "publishedAt": "2023-11-04T00:31:12Z",
+      "content": "6 with \r\nIdentity and authentication management provider Okta on Friday published an autopsy report on a recent breach that gave hackers administrative access to the Okta accounts of some of its cust… [+2858 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "John Timmer",
+      "title": "Mountains on a budget: SWFT expands its e-bike offerings",
+      "description": "SWFT takes its price- and corner-cutting to a bike format that skews high-end.",
+      "url": "https://arstechnica.com/cars/2023/11/mountains-on-a-budget-swft-expands-its-e-bike-offerings/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/IMG_1251-760x380.jpeg",
+      "publishedAt": "2023-11-04T11:08:41Z",
+      "content": "Enlarge/ The Apex, SWFT's take on a very affordable e-mountain bike.\r\n0 with \r\nThe subject of this review, SWFT's new Apex mountain bike, pulls together threads from two bikes we've looked at previou… [+2550 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "thunderbong",
+      "title": "When the natural gas industry used the playbook from Big Tobacco",
+      "description": "Article URL: https://arstechnica.com/health/2023/11/when-the-natural-gas-industry-used-the-playbook-from-big-tobacco/\nComments URL: https://news.ycombinator.com/item?id=38140618\nPoints: 6\n# Comments: 0",
+      "url": "https://arstechnica.com/health/2023/11/when-the-natural-gas-industry-used-the-playbook-from-big-tobacco/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/gas-burner-760x380.jpg",
+      "publishedAt": "2023-11-04T12:54:39Z",
+      "content": "32 with \r\nIn 1976, beloved chef, cookbook author, and television personality Julia Child returned to WGBH-TVs studios in Boston for a new cooking show, Julia Child &amp; Company, following her hit se… [+6514 chars]"
+    },
+    {
+      "source": {
+        "id": "ars-technica",
+        "name": "Ars Technica"
+      },
+      "author": "Stephen Clark",
+      "title": "A historic Falcon 9 is about to make a little more history tonight",
+      "description": "A historic Falcon 9 is about to make a little more history tonightarstechnica.com",
+      "url": "https://arstechnica.com/space/2023/11/a-historic-falcon-9-is-about-to-make-a-little-more-history-tonight/",
+      "urlToImage": "https://cdn.arstechnica.net/wp-content/uploads/2023/11/demo-2_nasa-logo-20200401-img_4007-760x380.jpg",
+      "publishedAt": "2023-11-04T00:19:37Z",
+      "content": "Enlarge/ This Falcon 9 started off with a coat of bright white paint. It now shows the soot markings from 17 trips to space.\r\n16 with \r\nIn three-and-a-half years of service, one of SpaceX's reusable … [+4737 chars]"
+    }
+  ]
+}

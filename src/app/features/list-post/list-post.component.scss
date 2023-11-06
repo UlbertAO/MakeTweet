@@ -1,0 +1,32 @@
+.list-post-skeleton-container {
+  border-radius: 1rem;
+  border: 1px solid #0066ff;
+  animation: opacity-ani 1s 1 linear;
+
+  @keyframes opacity-ani {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .skeleton {
+    background-image: linear-gradient(90deg, #ddd 0%, #fafafa 50%, #ddd 100%);
+    animation: bg-lines 1.5s infinite linear;
+    border-radius: 1rem;
+    min-height: 40vh;
+  }
+
+  @keyframes bg-lines {
+    0% {
+      background-position: 0vw;
+    }
+
+    100% {
+      background-position: 100vw;
+    }
+  }
+}

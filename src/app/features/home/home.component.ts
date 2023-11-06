@@ -6,6 +6,7 @@ import {
   ViewContainerRef,
   createNgModule,
 } from '@angular/core';
+import { UtilEventEmitterService } from 'src/app/shared/util-event-emitter.service';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +21,19 @@ export class HomeComponent {
   module_container!: ViewContainerRef;
   navigatedFromHome: boolean;
 
-  constructor(private injector: Injector) {}
+  constructor(
+    private injector: Injector,
+    private utilEventEmitterService: UtilEventEmitterService
+  ) {}
 
   ngOnInit() {
     this.navigatedFromHome = false;
     this.loadGeneratePost();
+    this.utilEventEmitterService.loadListPostComponent.subscribe((data) => {
+      if (data) {
+        this.loadListPost();
+      }
+    });
   }
   loadGeneratePost() {
     this.navigatedFromHome = false;
@@ -44,6 +53,19 @@ export class HomeComponent {
     this.navigatedFromHome = true;
     import('../add-keys/add-keys.module').then((module) => {
       const lazymodule = module['AddKeysModule'];
+      let moduleRef: NgModuleRef<any>;
+      moduleRef = createNgModule(lazymodule, this.injector);
+      const component = moduleRef.instance.getComponent();
+      this.module_container.clear();
+      this.module_container.createComponent(component, {
+        ngModuleRef: moduleRef,
+      });
+    });
+  }
+  loadListPost() {
+    this.navigatedFromHome = true;
+    import('../list-post/list-post.module').then((module) => {
+      const lazymodule = module['ListPostModule'];
       let moduleRef: NgModuleRef<any>;
       moduleRef = createNgModule(lazymodule, this.injector);
       const component = moduleRef.instance.getComponent();

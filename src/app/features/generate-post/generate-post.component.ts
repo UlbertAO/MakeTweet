@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from 'src/app/core/services/app.service';
 import { Constants } from 'src/app/shared/constants';
+import { UtilEventEmitterService } from 'src/app/shared/util-event-emitter.service';
 
 @Component({
   selector: 'app-generate-post',
@@ -11,7 +12,10 @@ export class GeneratePostComponent {
   allKeysAdded: boolean;
   sourceIds: { [key: string]: boolean } = {};
 
-  constructor(private appService: AppService) {
+  constructor(
+    private appService: AppService,
+    private utilEventEmitterService: UtilEventEmitterService
+  ) {
     console.log('GenereatePost constructor');
     const sourceIdsTemp: string =
       localStorage.getItem(Constants.NEWSAPISOURCES) || '';
@@ -54,5 +58,6 @@ export class GeneratePostComponent {
       Constants.NEWSAPISOURCES,
       JSON.stringify(this.sourceIds)
     );
+    this.utilEventEmitterService.loadListPost();
   }
 }
