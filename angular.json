@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/",
+            "outputPath": "dist/make_tweet/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -111,6 +111,61 @@
                   "src/**/*.html"
               ]
           }
+      },
+      "server": {
+        "builder": "@angular-devkit/build-angular:server",
+        "options": {
+          "outputPath": "dist/make_tweet/server",
+          "main": "server.ts",
+          "tsConfig": "tsconfig.server.json",
+          "inlineStyleLanguage": "scss"
+        },
+        "configurations": {
+          "production": {
+            "outputHashing": "media"
+          },
+          "development": {
+            "buildOptimizer": false,
+            "optimization": false,
+            "sourceMap": true,
+            "extractLicenses": false,
+            "vendorChunk": true
+          }
+        },
+        "defaultConfiguration": "production"
+      },
+      "serve-ssr": {
+        "builder": "@nguniversal/builders:ssr-dev-server",
+        "configurations": {
+          "development": {
+            "browserTarget": "make_tweet:build:development",
+            "serverTarget": "make_tweet:server:development"
+          },
+          "production": {
+            "browserTarget": "make_tweet:build:production",
+            "serverTarget": "make_tweet:server:production"
+          }
+        },
+        "defaultConfiguration": "development"
+      },
+      "prerender": {
+        "builder": "@nguniversal/builders:prerender",
+        "options": {
+          "routes": [
+            "/"
+          ]
+        },
+        "configurations": {
+          "production": {
+            "browserTarget": "make_tweet:build:production",
+            "serverTarget": "make_tweet:server:production"
+          },
+          "development": {
+            "browserTarget": "make_tweet:build:development",
+            "serverTarget": "make_tweet:server:development"
+          }
+        },
+        "defaultConfiguration": "production"
       }
       }
     }
