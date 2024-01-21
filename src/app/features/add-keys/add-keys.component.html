@@ -15,6 +15,64 @@
       />
     </div>
   </div>
+  <div class="row g-3 align-items-center w-75">
+    <div class="col-2">
+      <label for="xTwitterConsumerKey" class="col-form-label"
+        >Xtwitter Consumer Key:</label
+      >
+    </div>
+    <div class="col-8">
+      <input
+        type="text"
+        id="xTwitterConsumerKey"
+        class="form-control"
+        [(ngModel)]="xTwitterConsumerKey"
+      />
+    </div>
+  </div>
+  <div class="row g-3 align-items-center w-75">
+    <div class="col-2">
+      <label for="xTwitterConsumerSecret" class="col-form-label"
+        >Xtwitter Consumer secret:</label
+      >
+    </div>
+    <div class="col-8">
+      <input
+        type="text"
+        id="xTwitterConsumerSecret"
+        class="form-control"
+        [(ngModel)]="xTwitterConsumerSecret"
+      />
+    </div>
+  </div>
+  <div class="row g-3 align-items-center w-75">
+    <div class="col-2">
+      <label for="xTwitterToken" class="col-form-label">Xtwitter token:</label>
+    </div>
+    <div class="col-8">
+      <input
+        type="text"
+        id="xTwitterToken"
+        class="form-control"
+        [(ngModel)]="xTwitterToken"
+      />
+    </div>
+  </div>
+  <div class="row g-3 align-items-center w-75">
+    <div class="col-2">
+      <label for="xTwitterTokenSecret" class="col-form-label"
+        >Xtwitter token secret:</label
+      >
+    </div>
+    <div class="col-8">
+      <input
+        type="text"
+        id="xTwitterTokenSecret"
+        class="form-control"
+        [(ngModel)]="xTwitterTokenSecret"
+      />
+    </div>
+  </div>
   <div class="col">
     <button type="button" class="btn btn-outline-primary" (click)="saveKeys()">
       Save

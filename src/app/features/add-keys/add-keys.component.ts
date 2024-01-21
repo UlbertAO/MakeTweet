@@ -8,10 +8,37 @@ import { Constants } from 'src/app/shared/constants';
 })
 export class AddKeysComponent {
   newsApiKey: string;
+  xTwitterConsumerKey: string;
+  xTwitterConsumerSecret: string;
+  xTwitterToken: string;
+  xTwitterTokenSecret: string;
+
   constructor() {
     this.newsApiKey = localStorage.getItem(Constants.NEWSAPIKEY) || '';
+
+    this.xTwitterConsumerKey =
+      localStorage.getItem(Constants.xTwitterConsumerKey) || '';
+    this.xTwitterConsumerSecret =
+      localStorage.getItem(Constants.xTwitterConsumerSecret) || '';
+    this.xTwitterToken = localStorage.getItem(Constants.xTwitterToken) || '';
+    this.xTwitterTokenSecret =
+      localStorage.getItem(Constants.xTwitterTokenSecret) || '';
   }
   saveKeys() {
     localStorage.setItem(Constants.NEWSAPIKEY, this.newsApiKey);
+
+    localStorage.setItem(
+      Constants.xTwitterConsumerKey,
+      this.xTwitterConsumerKey
+    );
+    localStorage.setItem(
+      Constants.xTwitterConsumerSecret,
+      this.xTwitterConsumerSecret
+    );
+    localStorage.setItem(Constants.xTwitterToken, this.xTwitterToken);
+    localStorage.setItem(
+      Constants.xTwitterTokenSecret,
+      this.xTwitterTokenSecret
+    );
   }
 }

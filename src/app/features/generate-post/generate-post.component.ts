@@ -26,9 +26,14 @@ export class GeneratePostComponent {
     this.checkKeys();
   }
   checkKeys() {
-    this.allKeysAdded = localStorage.getItem(Constants.NEWSAPIKEY)?.trim()
-      ? true
-      : false;
+    this.allKeysAdded =
+      localStorage.getItem(Constants.NEWSAPIKEY)?.trim() &&
+      localStorage.getItem(Constants.xTwitterConsumerKey) &&
+      localStorage.getItem(Constants.xTwitterConsumerSecret) &&
+      localStorage.getItem(Constants.xTwitterToken) &&
+      localStorage.getItem(Constants.xTwitterTokenSecret)
+        ? true
+        : false;
   }
   getSources() {
     this.appService.getNewsApiSources().subscribe({
