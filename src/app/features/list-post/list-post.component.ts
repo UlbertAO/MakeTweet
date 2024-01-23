@@ -26,5 +26,13 @@ export class ListPostComponent {
   }
   postOnX(postContent: string) {
     console.log(postContent);
+    this.appService.postTweet().subscribe({
+      next: (data) => {
+        console.log('TWEET posted : ', data);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }

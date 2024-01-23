@@ -37,4 +37,7 @@ export class AppService {
       '../../../assets/response/newsapiEverything.json'
     );
   }
+  postTweet() {
+    return this.http.get('/api/getSomething');
+  }
 }
