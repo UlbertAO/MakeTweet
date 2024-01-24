@@ -31,7 +31,7 @@ export class HomeComponent {
     this.loadGeneratePost();
     this.utilEventEmitterService.loadListPostComponent.subscribe((data) => {
       if (data) {
-        this.loadListPost();
+        this.loadListPost(data);
       }
     });
   }
@@ -62,7 +62,7 @@ export class HomeComponent {
       });
     });
   }
-  loadListPost() {
+  loadListPost(selectedSourceList: string[]) {
     this.navigatedFromHome = true;
     import('../list-post/list-post.module').then((module) => {
       const lazymodule = module['ListPostModule'];
@@ -70,9 +70,11 @@ export class HomeComponent {
       moduleRef = createNgModule(lazymodule, this.injector);
       const component = moduleRef.instance.getComponent();
       this.module_container.clear();
-      this.module_container.createComponent(component, {
+      component.selectedSourceList = selectedSourceList;
+      const ref: any = this.module_container.createComponent(component, {
         ngModuleRef: moduleRef,
       });
+      ref.instance.selectedSourceList = selectedSourceList;
     });
   }
 }

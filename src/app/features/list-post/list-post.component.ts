@@ -9,13 +9,18 @@ import { ArticleItems } from 'src/app/models/newsapiEverythingModel';
 })
 export class ListPostComponent {
   newsList: Array<ArticleItems> = [];
+  selectedSourceList: string[] = [];
 
   constructor(private appService: AppService) {}
   ngOnInit() {
     this.loadNewsEverything();
   }
   loadNewsEverything() {
-    this.appService.getNewsApiEverything().subscribe({
+    const params = {
+      sources: this.selectedSourceList.join(),
+      pageSize: 20,
+    };
+    this.appService.getNewsApiEverything(params).subscribe({
       next: (data) => {
         this.newsList = data.articles;
       },

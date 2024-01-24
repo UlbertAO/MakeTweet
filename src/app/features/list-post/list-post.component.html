@@ -17,14 +17,14 @@
         class="col-lg-5 p-3 d-flex flex-column align-items-center gap-1 text-center"
       >
         <span class="border rounded p-2">
-          {{ articleItem.description }} <br />
+          {{ articleItem.title }} <br /><br />
           {{ articleItem.url }}
         </span>
         <div class="col-auto">
           <button
             type="button"
             class="btn btn-outline-primary"
-            (click)="postOnX(articleItem.description + '\n' + articleItem.url)"
+            (click)="postOnX(articleItem.title + '\n\n' + articleItem.url)"
           >
             Post
           </button>

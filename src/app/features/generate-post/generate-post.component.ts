@@ -63,6 +63,8 @@ export class GeneratePostComponent {
       Constants.NEWSAPISOURCES,
       JSON.stringify(this.sourceIds)
     );
-    this.utilEventEmitterService.loadListPost();
+    this.utilEventEmitterService.loadListPost(
+      Object.keys(this.sourceIds).filter((src) => this.sourceIds[src])
+    );
   }
 }

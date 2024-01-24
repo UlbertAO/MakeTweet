@@ -24,18 +24,32 @@ export class AppService {
     const headers = {
       'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
     };
-    // return this.http.get<NewsApiSourcesModel>(this.baseUrl?.newsapi + '/top-headlines/sources', {
-    //   params: params,
-    //   headers: headers,
-    // });
     return this.http.get<NewsApiSourcesModel>(
-      '../../../assets/response/newsapiSources.json'
+      this.baseUrl?.newsapi + '/top-headlines/sources',
+      {
+        params: params,
+        headers: headers,
+      }
     );
+    // return this.http.get<NewsApiSourcesModel>(
+    //   '../../../assets/response/newsapiSources.json'
+    // );
   }
-  getNewsApiEverything(): Observable<NewsApiEverythingModel> {
+  getNewsApiEverything(params: any): Observable<NewsApiEverythingModel> {
+    const headers = {
+      'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
+    };
     return this.http.get<NewsApiEverythingModel>(
-      '../../../assets/response/newsapiEverything.json'
+      this.baseUrl?.newsapi + '/everything',
+      {
+        params: params,
+        headers: headers,
+      }
     );
+
+    // return this.http.get<NewsApiEverythingModel>(
+    //   '../../../assets/response/newsapiEverything.json'
+    // );
   }
   postTweet() {
     return this.http.get('/api/getSomething');

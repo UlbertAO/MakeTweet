@@ -8,7 +8,7 @@ export class UtilEventEmitterService {
 
   constructor() {}
 
-  loadListPost() {
-    this.loadListPostComponent.emit(true);
+  loadListPost(selectedSourceList: string[]) {
+    this.loadListPostComponent.emit(selectedSourceList);
   }
 }
