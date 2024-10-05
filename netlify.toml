@@ -1,6 +1,6 @@
 [build]
   command = "npm run build:ssr"
-  publish = "dist/make-tweet/browser"
+  publish = "dist/make_tweet/browser"
 
 [[redirects]]
   from = "/*"
