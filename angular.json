@@ -20,19 +20,11 @@
             "outputPath": "dist/make_tweet/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/config"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/config"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -87,86 +79,73 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-              "lintFilePatterns": [
-                  "src/**/*.ts",
-                  "src/**/*.html"
-              ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
-      },
-      "server": {
-        "builder": "@angular-devkit/build-angular:server",
-        "options": {
-          "outputPath": "dist/make_tweet/server",
-          "main": "server.ts",
-          "tsConfig": "tsconfig.server.json",
-          "inlineStyleLanguage": "scss"
         },
-        "configurations": {
-          "production": {
-            "outputHashing": "media"
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/make_tweet/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
           },
-          "development": {
-            "buildOptimizer": false,
-            "optimization": false,
-            "sourceMap": true,
-            "extractLicenses": false,
-            "vendorChunk": true
-          }
-        },
-        "defaultConfiguration": "production"
-      },
-      "serve-ssr": {
-        "builder": "@nguniversal/builders:ssr-dev-server",
-        "configurations": {
-          "development": {
-            "browserTarget": "make_tweet:build:development",
-            "serverTarget": "make_tweet:server:development"
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
           },
-          "production": {
-            "browserTarget": "make_tweet:build:production",
-            "serverTarget": "make_tweet:server:production"
-          }
+          "defaultConfiguration": "production"
         },
-        "defaultConfiguration": "development"
-      },
-      "prerender": {
-        "builder": "@nguniversal/builders:prerender",
-        "options": {
-          "routes": [
-            "/"
-          ]
-        },
-        "configurations": {
-          "production": {
-            "browserTarget": "make_tweet:build:production",
-            "serverTarget": "make_tweet:server:production"
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "make_tweet:build:development",
+              "serverTarget": "make_tweet:server:development"
+            },
+            "production": {
+              "browserTarget": "make_tweet:build:production",
+              "serverTarget": "make_tweet:server:production"
+            }
           },
-          "development": {
-            "browserTarget": "make_tweet:build:development",
-            "serverTarget": "make_tweet:server:development"
-          }
+          "defaultConfiguration": "development"
         },
-        "defaultConfiguration": "production"
-      }
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "make_tweet:build:production",
+              "serverTarget": "make_tweet:server:production"
+            },
+            "development": {
+              "browserTarget": "make_tweet:build:development",
+              "serverTarget": "make_tweet:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
       }
     }
   }

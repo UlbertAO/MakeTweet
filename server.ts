@@ -7,6 +7,8 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
 
+import apiRouter from 'apiRoutes';
+
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
@@ -28,9 +30,11 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
-  server.get('/api/getSomething', (req, res) => {
-    res.send(JSON.stringify('works'));
-  });
+  // server.get('/api/getSomething', (req, res) => {
+  //   res.send(JSON.stringify('works'));
+  // });
+  server.use(express.json());
+  server.use('/api', apiRouter);
   // Serve static files from /browser
   server.get(
     '*.*',

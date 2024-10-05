@@ -4,7 +4,10 @@
   </div>
   <ng-template #generatePost>
     <div
-      *ngIf="(sourceIds | keyvalue).length > 0"
+      *ngIf="
+        (sourceIds | keyvalue).length > 0 && (sourceIds | hasTruthy);
+        else noGeneration
+      "
       class="row justify-content-center m-3"
     >
       <div class="col-auto">
@@ -17,6 +20,11 @@
         </button>
       </div>
     </div>
+    <ng-template #noGeneration>
+      <div class="row text-center">
+        <h3>Select any source to proceed</h3>
+      </div>
+    </ng-template>
     <div class="row m-3" *ngIf="(sourceIds | keyvalue).length > 0">
       <div class="col-auto">
         <fieldset class="d-flex flex-column">

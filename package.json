@@ -26,9 +26,11 @@
     "@ng-bootstrap/ng-bootstrap": "^15.1.2",
     "@nguniversal/express-engine": "^16.2.0",
     "@popperjs/core": "^2.11.6",
+    "axios": "^1.6.7",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.11.1",
     "express": "^4.15.2",
+    "oauth-1.0a": "^2.2.6",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

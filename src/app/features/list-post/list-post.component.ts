@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from 'src/app/core/services/app.service';
 import { ArticleItems } from 'src/app/models/newsapiEverythingModel';
+import { Constants } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-list-post',
@@ -31,7 +32,14 @@ export class ListPostComponent {
   }
   postOnX(postContent: string) {
     console.log(postContent);
-    this.appService.postTweet().subscribe({
+    const payload = {
+      text: postContent,
+      apiKey: localStorage.getItem(Constants.xTwitterConsumerKey),
+      apiSecretKey: localStorage.getItem(Constants.xTwitterConsumerSecret),
+      accessToken: localStorage.getItem(Constants.xTwitterToken),
+      accessTokenSecret: localStorage.getItem(Constants.xTwitterTokenSecret),
+    };
+    this.appService.postTweet(payload).subscribe({
       next: (data) => {
         console.log('TWEET posted : ', data);
       },

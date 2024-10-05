@@ -55,7 +55,10 @@ export class GeneratePostComponent {
     });
   }
   updateValue(key: string, value: boolean) {
-    this.sourceIds[key] = !value;
+    this.sourceIds = {
+      ...this.sourceIds,
+      [key]: !value,
+    };
     console.log(this.sourceIds);
   }
   loadPost() {

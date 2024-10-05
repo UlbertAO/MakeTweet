@@ -62,6 +62,7 @@ export class HomeComponent {
       });
     });
   }
+
   loadListPost(selectedSourceList: string[]) {
     this.navigatedFromHome = true;
     import('../list-post/list-post.module').then((module) => {
