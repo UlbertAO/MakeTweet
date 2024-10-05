@@ -15,7 +15,6 @@ export class AppService {
   constructor(private http: HttpClient, private appSetting: AppSettingService) {
     this.baseUrl = appSetting.configData?.baseurl;
   }
-
   getNewsApiSources(): Observable<NewsApiSourcesModel> {
     const params = {
       category: 'technology',
@@ -24,32 +23,28 @@ export class AppService {
     const headers = {
       'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
     };
-    return this.http.get<NewsApiSourcesModel>(
-      this.baseUrl?.newsapi + '/top-headlines/sources',
-      {
+    return this.http.post<NewsApiSourcesModel>('/api/newsApi', {
+      url: this.baseUrl?.newsapi + '/top-headlines/sources',
+      method: 'GET',
+      options: {
         params: params,
         headers: headers,
-      }
-    );
-    // return this.http.get<NewsApiSourcesModel>(
-    //   '../../../assets/response/newsapiSources.json'
-    // );
+      },
+    });
   }
+
   getNewsApiEverything(params: any): Observable<NewsApiEverythingModel> {
     const headers = {
       'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
     };
-    return this.http.get<NewsApiEverythingModel>(
-      this.baseUrl?.newsapi + '/everything',
-      {
+    return this.http.post<NewsApiEverythingModel>('/api/newsApi', {
+      url: this.baseUrl?.newsapi + '/everything',
+      method: 'GET',
+      options: {
         params: params,
         headers: headers,
-      }
-    );
-
-    // return this.http.get<NewsApiEverythingModel>(
-    //   '../../../assets/response/newsapiEverything.json'
-    // );
+      },
+    });
   }
   postTweet(payload: any) {
     return this.http.post('/api/tweet', payload);

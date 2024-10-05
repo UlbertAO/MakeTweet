@@ -67,4 +67,25 @@ apiRouter.route('/tweet').post((req, res) => {
     });
 });
 
+apiRouter.route('/newsApi').post((req, res) => {
+  const url = req.body?.url;
+  const method = req.body?.method;
+  const options = req.body?.options;
+
+  if (!url || !method || !options) {
+    res.status(400).json({ message: 'payload not proper' });
+    return;
+  }
+  // if(method === "POST") {}else if(method === "GET") {}
+
+  axios
+    .get(url, options)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500);
+      res.json({ message: 'Something went wrong' });
+    });
+});
 export default apiRouter;
