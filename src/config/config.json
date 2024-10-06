@@ -1,5 +1,6 @@
 {
   "baseurl": {
-    "newsapi": "https://newsapi.org/v2"
+    "newsapi": "https://newsapi.org/v2",
+    "netlifyFunction": "/.netlify/functions/main"
   }
 }

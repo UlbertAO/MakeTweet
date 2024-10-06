@@ -88,4 +88,10 @@ apiRouter.route('/newsApi').post((req, res) => {
       res.json({ message: 'Something went wrong' });
     });
 });
+
+apiRouter.route('/').get((req, res) => {
+  res.json({
+    data: { message: 'routes available', routes: ['/tweet', 'newsApi'] },
+  });
+});
 export default apiRouter;

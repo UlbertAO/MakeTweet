@@ -23,30 +23,36 @@ export class AppService {
     const headers = {
       'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
     };
-    return this.http.post<NewsApiSourcesModel>('/api/newsApi', {
-      url: this.baseUrl?.newsapi + '/top-headlines/sources',
-      method: 'GET',
-      options: {
-        params: params,
-        headers: headers,
-      },
-    });
+    return this.http.post<NewsApiSourcesModel>(
+      this.baseUrl?.netlifyFunction + '/newsApi',
+      {
+        url: this.baseUrl?.newsapi + '/top-headlines/sources',
+        method: 'GET',
+        options: {
+          params: params,
+          headers: headers,
+        },
+      }
+    );
   }
 
   getNewsApiEverything(params: any): Observable<NewsApiEverythingModel> {
     const headers = {
       'X-Api-Key': localStorage.getItem(Constants.NEWSAPIKEY) || '',
     };
-    return this.http.post<NewsApiEverythingModel>('/api/newsApi', {
-      url: this.baseUrl?.newsapi + '/everything',
-      method: 'GET',
-      options: {
-        params: params,
-        headers: headers,
-      },
-    });
+    return this.http.post<NewsApiEverythingModel>(
+      this.baseUrl?.netlifyFunction + '/newsApi',
+      {
+        url: this.baseUrl?.newsapi + '/everything',
+        method: 'GET',
+        options: {
+          params: params,
+          headers: headers,
+        },
+      }
+    );
   }
   postTweet(payload: any) {
-    return this.http.post('/api/tweet', payload);
+    return this.http.post(this.baseUrl?.netlifyFunction + '/tweet', payload);
   }
 }

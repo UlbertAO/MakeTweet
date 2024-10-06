@@ -57,6 +57,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "proxyConfig": "proxy.conf.json",
             "browserTarget": "make_tweet:build",
             "port": 9091
           },

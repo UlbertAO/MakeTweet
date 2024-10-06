@@ -35,7 +35,8 @@ export function app(): express.Express {
   //   res.send(JSON.stringify('works'));
   // });
   server.use(express.json());
-  server.use('/api', apiRouter);
+  // server.use('/api', apiRouter);
+  server.use('/.netlify/functions/main', apiRouter);
   // Serve static files from /browser
   server.get(
     '*.*',
@@ -57,15 +58,15 @@ export function app(): express.Express {
 }
 
 // function run(): void {
-const port = process.env['PORT'] || 4000;
+// const port = process.env['PORT'] || 4000;
 
-// Start up the Node server
+// // Start up the Node server
 const server = app();
 export const handler = serverless(server);
 
-server.listen(port, () => {
-  console.log(`Node Express server listening on http://localhost:${port}`);
-});
+// server.listen(port, () => {
+//   console.log(`Node Express server listening on http://localhost:${port}`);
+// });
 // }
 
 // Webpack will replace 'require' with '__webpack_require__'
