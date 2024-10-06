@@ -10,7 +10,8 @@
     "dev:ssr": "ng run make_tweet:serve-ssr",
     "serve:ssr": "node dist/make_tweet/server/main.js",
     "build:ssr": "ng build && ng run make_tweet:server",
-    "prerender": "ng run make_tweet:prerender"
+    "prerender": "ng run make_tweet:prerender",
+    "build:netlify": "netlify deploy --prod"
   },
   "private": true,
   "dependencies": {
@@ -29,9 +30,12 @@
     "axios": "^1.6.7",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.11.1",
-    "express": "^4.15.2",
+    "express": "^4.21.0",
+    "netlify-cli": "^17.36.4",
+    "netlify-lambda": "^2.0.16",
     "oauth-1.0a": "^2.2.6",
     "rxjs": "~7.8.0",
+    "serverless-http": "^3.2.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

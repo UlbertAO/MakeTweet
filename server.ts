@@ -3,6 +3,7 @@ import 'zone.js/node';
 import { APP_BASE_HREF } from '@angular/common';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
+import * as serverless from 'serverless-http';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { AppServerModule } from './src/main.server';
@@ -74,5 +75,5 @@ const moduleFilename = (mainModule && mainModule.filename) || '';
 if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
   run();
 }
-
 export * from './src/main.server';
+export const handler = serverless(app);
