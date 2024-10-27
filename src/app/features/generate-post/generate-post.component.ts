@@ -12,6 +12,9 @@ export class GeneratePostComponent {
   allKeysAdded: boolean;
   sourceIds: { [key: string]: boolean } = {};
 
+  errorMsg: string | null = null;
+  successMsg: string | null = null;
+
   constructor(
     private appService: AppService,
     private utilEventEmitterService: UtilEventEmitterService
@@ -36,12 +39,15 @@ export class GeneratePostComponent {
         : false;
   }
   getSources() {
+    this.utilEventEmitterService.isPending(true);
     this.appService.getNewsApiSources().subscribe({
       next: (data) => {
+        this.utilEventEmitterService.isPending(false);
+
         data.sources
-          .map((x) => x.id)
+          // .map((x) => x.id)
           .forEach((src) => {
-            this.sourceIds[src] = false;
+            this.sourceIds[src.id] = false;
           });
         localStorage.setItem(
           Constants.NEWSAPISOURCES,
@@ -50,7 +56,9 @@ export class GeneratePostComponent {
         // console.log(data);
       },
       error: (error) => {
-        console.log(error);
+        this.utilEventEmitterService.isPending(false);
+
+        this.errorMsg = error.error.message;
       },
     });
   }

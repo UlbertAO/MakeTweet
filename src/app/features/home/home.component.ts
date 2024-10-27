@@ -34,6 +34,11 @@ export class HomeComponent {
         this.loadListPost(data);
       }
     });
+    this.utilEventEmitterService.keysAddedInLocalStorage.subscribe((data) => {
+      if (data) {
+        this.loadGeneratePost();
+      }
+    });
   }
   loadGeneratePost() {
     this.navigatedFromHome = false;

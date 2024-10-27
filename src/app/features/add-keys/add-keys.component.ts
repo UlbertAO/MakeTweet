@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Constants } from 'src/app/shared/constants';
+import { UtilEventEmitterService } from 'src/app/shared/util-event-emitter.service';
 
 @Component({
   selector: 'app-add-keys',
@@ -13,7 +14,7 @@ export class AddKeysComponent {
   xTwitterToken: string;
   xTwitterTokenSecret: string;
 
-  constructor() {
+  constructor(private utilEventEmitterService: UtilEventEmitterService) {
     this.newsApiKey = localStorage.getItem(Constants.NEWSAPIKEY) || '';
 
     this.xTwitterConsumerKey =
@@ -40,5 +41,6 @@ export class AddKeysComponent {
       Constants.xTwitterTokenSecret,
       this.xTwitterTokenSecret
     );
+    this.utilEventEmitterService.keysAdded(true);
   }
 }

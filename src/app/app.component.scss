@@ -1,0 +1,57 @@
+#loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 99;
+  #status {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  .spinner-sm {
+    width: 70px;
+    height: 70px;
+    background-image: url("../assets/images/bird.png ");
+    background-size: 40%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+  .spinner-sm:after,
+  .spinner-sm:before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+  }
+  .spinner-sm-1:after {
+    position: absolute;
+    top: 0px;
+    /* top: -4px; */
+    /* left: -4px; */
+    border: 4px solid transparent;
+    border-top-color: #3e85c5;
+    border-bottom-color: #3e85c5;
+    animation: spinny 0.8s linear infinite;
+  }
+}
+
+@keyframes spinny {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(90deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

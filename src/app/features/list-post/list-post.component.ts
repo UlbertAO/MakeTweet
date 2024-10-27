@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from 'src/app/core/services/app.service';
 import { ArticleItems } from 'src/app/models/newsapiEverythingModel';
 import { Constants } from 'src/app/shared/constants';
+import { UtilEventEmitterService } from 'src/app/shared/util-event-emitter.service';
 
 @Component({
   selector: 'app-list-post',
@@ -12,7 +13,10 @@ export class ListPostComponent {
   newsList: Array<ArticleItems> = [];
   selectedSourceList: string[] = [];
 
-  constructor(private appService: AppService) {}
+  constructor(
+    private appService: AppService,
+    private utilEventEmitterService: UtilEventEmitterService
+  ) {}
   ngOnInit() {
     this.loadNewsEverything();
   }
@@ -21,11 +25,17 @@ export class ListPostComponent {
       sources: this.selectedSourceList.join(),
       pageSize: 20,
     };
+    this.utilEventEmitterService.isPending(true);
+
     this.appService.getNewsApiEverything(params).subscribe({
       next: (data) => {
+        this.utilEventEmitterService.isPending(false);
+
         this.newsList = data.articles;
       },
       error: (error) => {
+        this.utilEventEmitterService.isPending(false);
+
         console.log(error);
       },
     });
@@ -39,11 +49,17 @@ export class ListPostComponent {
       accessToken: localStorage.getItem(Constants.xTwitterToken),
       accessTokenSecret: localStorage.getItem(Constants.xTwitterTokenSecret),
     };
+    this.utilEventEmitterService.isPending(true);
+
     this.appService.postTweet(payload).subscribe({
       next: (data) => {
+        this.utilEventEmitterService.isPending(false);
+
         console.log('TWEET posted : ', data);
       },
       error: (error) => {
+        this.utilEventEmitterService.isPending(false);
+
         console.log(error);
       },
     });
