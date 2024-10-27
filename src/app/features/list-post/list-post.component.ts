@@ -12,6 +12,16 @@ import { UtilEventEmitterService } from 'src/app/shared/util-event-emitter.servi
 export class ListPostComponent {
   newsList: Array<ArticleItems> = [];
   selectedSourceList: string[] = [];
+  includeFilters: { [key: string]: boolean } = {
+    title: true,
+    description: true,
+    content: false,
+    author: false,
+    publishedAt: false,
+    source: false,
+  };
+  errorMsg: string | null = null;
+  successMsg: string | null = null;
 
   constructor(
     private appService: AppService,
@@ -20,6 +30,7 @@ export class ListPostComponent {
   ngOnInit() {
     this.loadNewsEverything();
   }
+
   loadNewsEverything() {
     const params = {
       sources: this.selectedSourceList.join(),
@@ -35,10 +46,16 @@ export class ListPostComponent {
       },
       error: (error) => {
         this.utilEventEmitterService.isPending(false);
-
-        console.log(error);
+        this.errorMsg = error.error?.message ?? Constants.APIError;
       },
     });
+  }
+  updateValue(key: string, value: boolean) {
+    this.includeFilters = {
+      ...this.includeFilters,
+      [key]: !value,
+    };
+    console.log(this.includeFilters);
   }
   postOnX(postContent: string) {
     console.log(postContent);

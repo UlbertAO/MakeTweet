@@ -1,4 +1,21 @@
-<div class="row">
+<div class="row m-0 p-0">
+  <div *ngIf="errorMsg" class="error-msg p-3">{{ errorMsg }}</div>
+  <div *ngIf="successMsg" class="success-msg p-3">{{ successMsg }}</div>
+  <div class="container">
+    <b>Include:</b>
+    <div class="d-flex flex-wrap gap-3">
+      <span *ngFor="let src of includeFilters | keyvalue" class="d-flex gap-1">
+        <input
+          type="checkbox"
+          [id]="src.key"
+          [name]="src.key"
+          [checked]="src.value"
+          (click)="updateValue(src.key, src.value)"
+        />
+        <label [for]="src.key">{{ src.key }}</label>
+      </span>
+    </div>
+  </div>
   <div
     class="col mx-sm-5 mx-3 my-sm-2 my-2 px-2 px-sm-4 py-2 py-sm-3 list-post-skeleton-container d-flex"
     [ngClass]="
@@ -16,15 +33,23 @@
         *ngFor="let articleItem of newsList"
         class="col-lg-5 p-3 d-flex flex-column align-items-center gap-1 text-center"
       >
-        <span class="border rounded p-2">
-          {{ articleItem.title }} <br /><br />
-          {{ articleItem.url }}
+        <span class="border rounded p-2" #content [contentEditable]="true">
+          <p *ngIf="includeFilters['title']">
+            {{ articleItem.title }} <br /><br />
+          </p>
+          <p *ngIf="includeFilters['description']">
+            {{ articleItem.description }} <br /><br />
+          </p>
+
+          <p *ngIf="includeFilters['content']">
+            {{ articleItem.content }} <br /><br />
+          </p>
         </span>
         <div class="col-auto">
           <button
             type="button"
             class="btn btn-outline-primary"
-            (click)="postOnX(articleItem.title + '\n\n' + articleItem.url)"
+            (click)="postOnX(content.innerText)"
           >
             Post
           </button>

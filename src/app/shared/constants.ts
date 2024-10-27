@@ -6,4 +6,6 @@ export const Constants = {
   xTwitterConsumerSecret: 'xTwitterConsumerSecret',
   xTwitterToken: 'xTwitterToken',
   xTwitterTokenSecret: 'xTwitterTokenSecret',
+
+  APIError: 'Something Went Wrong',
 };
